@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="CASA: Compassionate Aging St. Augustine — CSA's initiative helping older adults age safely and joyfully in their own homes and communities through volunteer support and county partnerships." />
+  <title>CASA — Compassionate Aging St. Augustine</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    .how-we-help-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .help-card {
+      background: rgba(168,197,192,0.07);
+      border: 1px solid rgba(168,197,192,0.18);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.75rem;
+      transition: all var(--transition);
+    }
+    .help-card:hover {
+      background: rgba(168,197,192,0.13);
+      border-color: rgba(168,197,192,0.3);
+      transform: translateY(-3px);
+    }
+    .help-card-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+    .help-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .help-card p { font-size: 0.93rem; margin: 0; }
+
+    .audience-section {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(168,197,192,0.12);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+    }
+    .audience-section h3 { margin-bottom: 1rem; }
+
+    .county-banner {
+      background: linear-gradient(135deg, var(--clr-primary-dark) 0%, #0f2028 100%);
+      border: 1px solid rgba(168,197,192,0.18);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    @media (max-width: 680px) {
+      .county-banner { flex-direction: column; }
+    }
+    .county-banner-icon { font-size: 3.5rem; flex-shrink: 0; }
+    .county-banner h3 { margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── Navigation ── -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Compassionate St. Augustine — Home">
+        <img src="assets/logo.jpeg" alt="Bridge of Lions logo — Compassionate St. Augustine" />
+        <div class="nav-logo-text">
+          <span class="nav-logo-title">Compassionate St. Augustine</span>
+          <span class="nav-logo-sub">501(c)(3) Nonprofit</span>
+        </div>
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gift-gardens.html">Gift Gardens</a></li>
+        <li><a href="compassionate-women.html">Compassionate Women</a></li>
+        <li><a href="good-trouble.html">Good Trouble</a></li>
+        <li><a href="purple-bench.html">Purple Bench</a></li>
+        <li><a href="casa.html" class="active">CASA</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="index.html#donate" class="btn-nav-donate">Donate</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ── Page Hero ── -->
+    <section class="page-hero" aria-label="CASA hero">
+      <div class="page-hero-bg" style="background-image: url('https://picsum.photos/seed/seniors1/1400/700');" aria-hidden="true"></div>
+      <div class="page-hero-content">
+        <span class="section-label">
+          <span class="pill pill-new" style="margin-right:0.5rem;">New Initiative</span>
+          CASA
+        </span>
+        <h1>Aging with Dignity,<br><span class="text-accent">Surrounded by Community</span></h1>
+        <p>Compassionate Aging St. Augustine — helping older adults live safely and joyfully in the homes and neighborhoods they love, with the support of neighbors who care.</p>
+      </div>
+    </section>
+
+    <!-- ── Our Mission ── -->
+    <section class="section" id="mission" aria-labelledby="casa-mission-heading">
+      <div class="container">
+        <div class="about-grid">
+          <div class="fade-in">
+            <span class="section-label">Our Mission</span>
+            <h2 id="casa-mission-heading">Keeping Seniors Connected, Independent, and Cared For</h2>
+            <div class="divider" style="margin-left:0;"></div>
+            <p>
+              CASA — Compassionate Aging St. Augustine — is CSA's newest initiative, born from a simple but powerful belief: every older adult deserves to age with dignity, surrounded by community, in the place they call home.
+            </p>
+            <p>
+              St. Augustine has a vibrant and growing senior population. Many want to age in place — staying in the neighborhoods they know, near the people they love. CASA is here to make that possible through volunteer support, community connection, and smart partnerships with St. Johns County.
+            </p>
+            <p>
+              Our approach is neighbor-to-neighbor: ordinary people offering ordinary acts of care that make an extraordinary difference in an older adult's life.
+            </p>
+          </div>
+          <div class="fade-in fade-in-delay-1">
+            <img src="https://picsum.photos/seed/seniors2/600/480" alt="An older adult and a younger neighbor sharing a warm conversation on a front porch" loading="lazy" style="border-radius: var(--radius-lg); width:100%; height:380px; object-fit:cover;" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How We Help ── -->
+    <section class="section section--alt" aria-labelledby="how-help-heading">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label">How We Help</span>
+          <h2 id="how-help-heading" class="fade-in">Four Ways CASA Shows Up</h2>
+          <div class="divider"></div>
+          <p class="section-subtitle fade-in fade-in-delay-1">CASA volunteers provide practical, heartfelt support across four key areas — meeting seniors where they are and helping them thrive.</p>
+        </div>
+        <div class="how-we-help-grid" style="margin-top:2.5rem;">
+          <div class="help-card fade-in fade-in-delay-1">
+            <span class="help-card-icon" aria-hidden="true">🏡</span>
+            <h3>Volunteer Home Visits</h3>
+            <p>Regular friendly visits from trained CASA volunteers provide companionship, a watchful eye, and the reassurance that comes from knowing someone genuinely cares. Isolation is the silent epidemic — our visits break it.</p>
+          </div>
+          <div class="help-card fade-in fade-in-delay-2">
+            <span class="help-card-icon" aria-hidden="true">🚗</span>
+            <h3>Transportation Assistance</h3>
+            <p>CASA volunteers provide rides to medical appointments, grocery stores, community events, and visits with friends and family. Mobility is independence — we help seniors maintain both.</p>
+          </div>
+          <div class="help-card fade-in fade-in-delay-3">
+            <span class="help-card-icon" aria-hidden="true">🤝</span>
+            <h3>Community Connection</h3>
+            <p>We connect seniors to events, social programs, faith communities, and civic life in St. Augustine. Staying engaged with community isn't a luxury — it's essential to health and happiness.</p>
+          </div>
+          <div class="help-card fade-in fade-in-delay-4">
+            <span class="help-card-icon" aria-hidden="true">🏛️</span>
+            <h3>County Coordination</h3>
+            <p>CASA works in close partnership with St. Johns County Elder Services to identify gaps in care, coordinate resources, and ensure no senior falls through the cracks of the social safety net.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Photo Strip ── -->
+    <section class="section" aria-label="CASA program photos">
+      <div class="container">
+        <div class="img-strip">
+          <img src="https://picsum.photos/seed/seniors3/400/300" alt="Volunteer walking with an older adult neighbor through a St. Augustine neighborhood" loading="lazy" />
+          <img src="https://picsum.photos/seed/seniors4/400/300" alt="Two neighbors sharing a meal and laughter together" loading="lazy" />
+          <img src="https://picsum.photos/seed/seniors5/400/300" alt="Hands of an older adult clasped gently by a caring younger volunteer" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── For Seniors + For Volunteers ── -->
+    <section class="section section--alt" aria-labelledby="audiences-heading">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label">Join CASA</span>
+          <h2 id="audiences-heading" class="fade-in">Who CASA Serves &amp; Who Makes It Possible</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="two-col" style="margin-top:3rem; align-items:start;">
+          <div class="audience-section fade-in">
+            <h3 style="color: var(--clr-accent-light);">🏠 For Seniors</h3>
+            <p>Are you or a loved one an older adult in St. Augustine who could use a friendly visitor, help getting to appointments, or connection to community services?</p>
+            <p>CASA is here for you. Our services are free and provided by caring, trained community volunteers. Requesting support is simple and confidential.</p>
+            <h4 style="margin: 1.25rem 0 0.5rem;">How to Request Support</h4>
+            <div class="steps" style="gap:1rem;">
+              <div class="step">
+                <div class="step-num" aria-hidden="true" style="width:40px;height:40px;font-size:1.1rem;">1</div>
+                <div class="step-text"><p style="margin:0; font-size:0.93rem;">Call or email CSA to let us know you'd like CASA support</p></div>
+              </div>
+              <div class="step">
+                <div class="step-num" aria-hidden="true" style="width:40px;height:40px;font-size:1.1rem;">2</div>
+                <div class="step-text"><p style="margin:0; font-size:0.93rem;">A CASA coordinator will contact you to learn about your needs</p></div>
+              </div>
+              <div class="step">
+                <div class="step-num" aria-hidden="true" style="width:40px;height:40px;font-size:1.1rem;">3</div>
+                <div class="step-text"><p style="margin:0; font-size:0.93rem;">We match you with a trained volunteer and get started</p></div>
+              </div>
+            </div>
+            <a href="mailto:info@compassionatestaugustine.org?subject=CASA - Request Support" class="btn btn-primary" style="margin-top:1.5rem;">Request Support</a>
+          </div>
+          <div class="audience-section fade-in fade-in-delay-1" id="volunteer">
+            <h3 style="color: var(--clr-accent-warm);">💛 For Volunteers</h3>
+            <p>Do you have a few hours each month to give? CASA volunteers make an enormous difference in the lives of seniors — and they often say the experience is as meaningful for them as it is for the people they serve.</p>
+            <p>No special skills required — just warmth, reliability, and a willingness to show up.</p>
+            <h4 style="margin: 1.25rem 0 0.5rem;">What Volunteers Do</h4>
+            <div class="feature-list" style="gap:0.75rem;">
+              <div class="feature-item">
+                <div class="feature-item-icon" style="width:40px;height:40px;font-size:1.1rem;" aria-hidden="true">🤗</div>
+                <div class="feature-item-text"><p style="margin:0; font-size:0.93rem;">Regular friendly visits to seniors at home</p></div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-item-icon" style="width:40px;height:40px;font-size:1.1rem;" aria-hidden="true">🚗</div>
+                <div class="feature-item-text"><p style="margin:0; font-size:0.93rem;">Driving seniors to appointments and errands</p></div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-item-icon" style="width:40px;height:40px;font-size:1.1rem;" aria-hidden="true">📞</div>
+                <div class="feature-item-text"><p style="margin:0; font-size:0.93rem;">Wellness check-in calls to isolated seniors</p></div>
+              </div>
+              <div class="feature-item">
+                <div class="feature-item-icon" style="width:40px;height:40px;font-size:1.1rem;" aria-hidden="true">🛒</div>
+                <div class="feature-item-text"><p style="margin:0; font-size:0.93rem;">Help with grocery shopping and light errands</p></div>
+              </div>
+            </div>
+            <a href="mailto:info@compassionatestaugustine.org?subject=CASA - Volunteer Interest" class="btn btn-accent" style="margin-top:1.5rem;">Become a Volunteer</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── County Partnership ── -->
+    <section class="section" aria-labelledby="county-heading">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label">County Partnership</span>
+          <h2 id="county-heading" class="fade-in">Working with St. Johns County</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="county-banner fade-in" style="margin-top:2rem;">
+          <div class="county-banner-icon" aria-hidden="true">🏛️</div>
+          <div>
+            <h3>Filling the Gaps Together</h3>
+            <p>CASA works in active partnership with St. Johns County Elder Services to identify where senior needs exceed available public resources — and then we fill those gaps with compassionate volunteer support.</p>
+            <p>This public-nonprofit collaboration ensures that seniors receive coordinated, comprehensive care rather than fragmented, duplicated, or missed services. By working alongside county systems rather than in isolation, CASA maximizes its impact for the seniors who need us most.</p>
+            <div class="partner-strip" style="margin-top:1.5rem; padding:1.25rem; justify-content:flex-start;">
+              <div class="partner-badge">🏛️ St. Johns County Elder Services</div>
+              <div class="partner-badge">🏥 First Coast Health</div>
+              <div class="partner-badge">🚌 St. Johns County Transit</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Quote ── -->
+    <section class="section section--alt" aria-label="Senior community voice">
+      <div class="container" style="max-width:820px;">
+        <div class="quote-block fade-in">
+          <blockquote>"I didn't want to leave my home of 40 years. My CASA volunteer made it possible for me to stay. She's not just a volunteer — she's become a dear friend. That's what compassion looks like."</blockquote>
+          <cite>— CASA program participant, St. Augustine</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="cta-section" aria-labelledby="casa-cta-heading">
+      <div class="container">
+        <span class="section-label">Get Involved with CASA</span>
+        <h2 id="casa-cta-heading" class="fade-in">Help Seniors Age with Dignity</h2>
+        <div class="divider"></div>
+        <p class="fade-in fade-in-delay-1">Whether you need support or you have time to give, CASA connects seniors and volunteers in relationships that change lives. Join us in building a community that cares for its elders.</p>
+        <div class="btn-group fade-in fade-in-delay-2" style="justify-content:center;">
+          <a href="mailto:info@compassionatestaugustine.org?subject=CASA - Request Support" class="btn btn-primary btn-lg">Request Support</a>
+          <a href="mailto:info@compassionatestaugustine.org?subject=CASA - Volunteer Interest" class="btn btn-outline btn-lg">Become a Volunteer</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/logo.jpeg" alt="Compassionate St. Augustine logo" />
+            <div>
+              <div class="footer-logo-text">Compassionate St. Augustine</div>
+              <div class="footer-logo-sub">501(c)(3) Nonprofit</div>
+            </div>
+          </div>
+          <p>Influencing and growing a culture of compassion through advocacy, awareness, and action in St. Augustine, Florida.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com" class="social-link" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://instagram.com" class="social-link" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul role="list">
+            <li><a href="gift-gardens.html">Gift Gardens</a></li>
+            <li><a href="compassionate-women.html">Compassionate Women</a></li>
+            <li><a href="good-trouble.html">Good Trouble</a></li>
+            <li><a href="purple-bench.html">Purple Bench</a></li>
+            <li><a href="casa.html">CASA</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul role="list">
+            <li><a href="events.html">Upcoming Events</a></li>
+            <li><a href="#volunteer">Volunteer with CASA</a></li>
+            <li><a href="index.html#donate">Donate</a></li>
+            <li><a href="purple-bench.html#nominate">Nominate a Business</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <address class="footer-address" style="font-style:normal;">
+            <strong>Compassionate St. Augustine</strong><br>
+            147 Martin Luther King Ave<br>
+            St. Augustine, FL 32084<br><br>
+            <a href="mailto:info@compassionatestaugustine.org">info@compassionatestaugustine.org</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Compassionate St. Augustine. All rights reserved. 501(c)(3) Nonprofit Organization.</p>
+        <p>Part of the global <a href="https://charterforcompassion.org" target="_blank" rel="noopener noreferrer" style="color:var(--clr-accent-light);">Charter for Compassion</a> movement.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

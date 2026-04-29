@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Events Calendar — Join Compassionate St. Augustine at upcoming community events, workshops, garden days, advocacy meetings, and more in St. Augustine, Florida." />
+  <title>Events — Compassionate St. Augustine</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    .events-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(168,197,192,0.18);
+      color: var(--clr-text-body);
+      border-radius: 100px;
+      padding: 0.5rem 1.25rem;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(196,135,90,0.15);
+      border-color: rgba(196,135,90,0.4);
+      color: var(--clr-accent-warm);
+    }
+    .event-program-tag {
+      display: inline-block;
+      background: rgba(168,197,192,0.12);
+      color: var(--clr-accent-light);
+      border-radius: 100px;
+      padding: 0.2rem 0.75rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+    .event-program-tag.tag-gardens { background: rgba(120,180,80,0.1); color: #8bc44a; }
+    .event-program-tag.tag-women { background: rgba(180,100,180,0.1); color: #c47bc4; }
+    .event-program-tag.tag-trouble { background: rgba(196,135,90,0.12); color: var(--clr-accent-warm); }
+    .event-program-tag.tag-bench { background: rgba(100,100,200,0.1); color: #9696e0; }
+    .event-program-tag.tag-casa { background: rgba(168,197,192,0.12); color: var(--clr-accent-light); }
+    .event-program-tag.tag-general { background: rgba(255,255,255,0.06); color: var(--clr-text-body); }
+
+    .no-events {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--clr-text-body);
+      font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+      .event-card {
+        grid-template-columns: 1fr !important;
+      }
+      .event-card-actions {
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── Navigation ── -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Compassionate St. Augustine — Home">
+        <img src="assets/logo.jpeg" alt="Bridge of Lions logo — Compassionate St. Augustine" />
+        <div class="nav-logo-text">
+          <span class="nav-logo-title">Compassionate St. Augustine</span>
+          <span class="nav-logo-sub">501(c)(3) Nonprofit</span>
+        </div>
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gift-gardens.html">Gift Gardens</a></li>
+        <li><a href="compassionate-women.html">Compassionate Women</a></li>
+        <li><a href="good-trouble.html">Good Trouble</a></li>
+        <li><a href="purple-bench.html">Purple Bench</a></li>
+        <li><a href="casa.html">CASA</a></li>
+        <li><a href="events.html" class="active">Events</a></li>
+        <li><a href="index.html#donate" class="btn-nav-donate">Donate</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ── Page Hero ── -->
+    <section class="page-hero" aria-label="Events hero">
+      <div class="page-hero-bg" style="background-image: url('https://picsum.photos/seed/events1/1400/700');" aria-hidden="true"></div>
+      <div class="page-hero-content">
+        <span class="section-label">Events Calendar</span>
+        <h1>Join Us in<br><span class="text-accent">the Community</span></h1>
+        <p>From garden days and advocacy meetings to community dinners and award ceremonies — there's always a place for you in CSA's calendar.</p>
+      </div>
+    </section>
+
+    <!-- ── Events List ── -->
+    <section class="section" id="events" aria-labelledby="events-heading">
+      <div class="container">
+        <div class="text-center" style="margin-bottom:2.5rem;">
+          <span class="section-label">Upcoming Events</span>
+          <h2 id="events-heading" class="fade-in">May — August 2026</h2>
+          <div class="divider"></div>
+        </div>
+
+        <!-- Filter buttons -->
+        <nav class="events-filter" aria-label="Filter events by program">
+          <button class="filter-btn active" data-filter="all">All Events</button>
+          <button class="filter-btn" data-filter="gardens">🌿 Gift Gardens</button>
+          <button class="filter-btn" data-filter="women">👩 Compassionate Women</button>
+          <button class="filter-btn" data-filter="trouble">✊ Good Trouble</button>
+          <button class="filter-btn" data-filter="bench">🪑 Purple Bench</button>
+          <button class="filter-btn" data-filter="casa">🏠 CASA</button>
+        </nav>
+
+        <div class="events-list" id="events-list" aria-live="polite">
+
+          <!-- May Events -->
+          <article class="event-card fade-in" data-program="gardens" style="grid-template-columns: 100px 1fr auto;">
+            <div class="event-date" aria-label="May 3">
+              <div class="event-date-month">May</div>
+              <div class="event-date-day">3</div>
+            </div>
+            <div class="event-info">
+              <span class="event-program-tag tag-gardens">Gift Gardens</span>
+              <h3>West Augustine Spring Planting Day</h3>
+              <p class="event-meta">📍 West Augustine Garden &nbsp;|&nbsp; ⏰ 8:00 AM – 12:00 PM</p>
+              <p>Kick off the spring growing season with us! Join volunteers of all ages to plant summer vegetables at our West Augustine garden. Gloves and tools provided — just bring yourself and a good attitude.</p>
+            </div>
+            <div class="event-card-actions" style="display:flex; flex-direction:column; gap:0.5rem; align-self:center;">
+              <a href="mailto:info@compassionatestaugustine.org?subject=RSVP: West Augustine Spring Planting Day" class="btn btn-primary" style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem; white-space:nowrap;">RSVP</a>
+              <button class="btn btn-accent btn-add-cal"
+                style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;"
+                data-title="West Augustine Spring Planting Day"
+                data-start="20260503T080000"
+                data-end="20260503T120000"
+                data-loc="West Augustine Garden, St. Augustine, FL"
+                data-details="Spring planting day with Compassionate St. Augustine Gift Gardens program.">+ Calendar</button>
+            </div>
+          </article>
+
+          <article class="event-card fade-in fade-in-delay-1" data-program="women" style="grid-template-columns: 100px 1fr auto;">
+            <div class="event-date" aria-label="May 7">
+              <div class="event-date-month">May</div>
+              <div class="event-date-day">7</div>
+            </div>
+            <div class="event-info">
+              <span class="event-program-tag tag-women">Compassionate Women</span>
+              <h3>Compassionate Women Monthly Circle</h3>
+              <p class="event-meta">📍 CSA Office, 147 MLK Ave &nbsp;|&nbsp; ⏰ 6:00 PM – 8:00 PM</p>
+              <p>Our regular monthly gathering — a welcoming space for women to connect, share, and support one another. New members especially welcome! Light refreshments provided.</p>
+            </div>
+            <div class="event-card-actions" style="display:flex; flex-direction:column; gap:0.5rem; align-self:center;">
+              <a href="mailto:info@compassionatestaugustine.org?subject=RSVP: Compassionate Women May Circle" class="btn btn-primary" style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;">RSVP</a>
+              <button class="btn btn-accent btn-add-cal"
+                style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;"
+                data-title="Compassionate Women Monthly Circle"
+                data-start="20260507T180000"
+                data-end="20260507T200000"
+                data-loc="147 Martin Luther King Ave, St. Augustine, FL 32084"
+                data-details="Monthly gathering for Compassionate Women members.">+ Calendar</button>
+            </div>
+          </article>
+
+          <article class="event-card fade-in fade-in-delay-2" data-program="trouble" style="grid-template-columns: 100px 1fr auto;">
+            <div class="event-date" aria-label="May 14">
+              <div class="event-date-month">May</div>
+              <div class="event-date-day">14</div>
+            </div>
+            <div class="event-info">
+              <span class="event-program-tag tag-trouble">Good Trouble</span>
+              <h3>Housing Affordability Coalition Meeting</h3>
+              <p class="event-meta">📍 Flagler College, Ringhaver Student Center &nbsp;|&nbsp; ⏰ 5:30 PM – 7:30 PM</p>
+              <p>Join our housing coalition working group to discuss the proposed affordable housing ordinance. Hear updates from city commission, share your story, and help shape our advocacy strategy.</p>
+            </div>
+            <div class="event-card-actions" style="display:flex; flex-direction:column; gap:0.5rem; align-self:center;">
+              <a href="mailto:info@compassionatestaugustine.org?subject=RSVP: Housing Coalition Meeting" class="btn btn-primary" style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;">RSVP</a>
+              <button class="btn btn-accent btn-add-cal"
+                style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;"
+                data-title="Housing Affordability Coalition Meeting"
+                data-start="20260514T173000"
+                data-end="20260514T193000"
+                data-loc="Flagler College, Ringhaver Student Center, St. Augustine, FL"
+                data-details="Good Trouble housing advocacy coalition meeting.">+ Calendar</button>
+            </div>
+          </article>
+
+          <article class="event-card fade-in" data-program="gardens" style="grid-template-columns: 100px 1fr auto;">
+            <div class="event-date" aria-label="May 17">
+              <div class="event-date-month">May</div>
+              <div class="event-date-day">17</div>
+            </div>
+            <div class="event-info">
+              <span class="event-program-tag tag-gardens">Gift Gardens</span>
+              <h3>MLK Avenue Garden Saturday Volunteer Session</h3>
+              <p class="event-meta">📍 MLK Avenue Garden, St. Augustine &nbsp;|&nbsp; ⏰ 8:00 AM – 11:00 AM</p>
+              <p>Weekly open volunteer session at our MLK Avenue garden. Come for as long as you can — we're always grateful for helping hands. Great for families, first-timers welcome.</p>
+            </div>
+            <div class="event-card-actions" style="display:flex; flex-direction:column; gap:0.5rem; align-self:center;">
+              <a href="mailto:info@compassionatestaugustine.org?subject=RSVP: MLK Garden Saturday" class="btn btn-primary" style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;">RSVP</a>
+              <button class="btn btn-accent btn-add-cal"
+                style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;"
+                data-title="MLK Avenue Garden Volunteer Session"
+                data-start="20260517T080000"
+                data-end="20260517T110000"
+                data-loc="147 Martin Luther King Ave, St. Augustine, FL"
+                data-details="Saturday morning volunteer session at the MLK Avenue Gift Garden.">+ Calendar</button>
+            </div>
+          </article>
+
+          <article class="event-card fade-in fade-in-delay-1" data-program="casa" style="grid-template-columns: 100px 1fr auto;">
+            <div class="event-date" aria-label="May 19">
+              <div class="event-date-month">May</div>
+              <div class="event-date-day">19</div>
+            </div>
+            <div class="event-info">
+              <span class="event-program-tag tag-casa">CASA</span>
+              <h3>CASA Volunteer Training — Spring Cohort</h3>
+              <p class="event-meta">📍 CSA Office, 147 MLK Ave &nbsp;|&nbsp; ⏰ 10:00 AM – 1:00 PM</p>
+              <p>Interested in volunteering with CASA? Attend our half-day training to learn how to support seniors with home visits, transportation, and connection. Lunch provided. Space is limited — register early!</p>
+            </div>
+            <div class="event-card-actions" style="display:flex; flex-direction:column; gap:0.5rem; align-self:center;">
+              <a href="mailto:info@compassionatestaugustine.org?subject=RSVP: CASA Volunteer Training May" class="btn btn-primary" style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;">RSVP</a>
+              <button class="btn btn-accent btn-add-cal"
+                style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;"
+                data-title="CASA Volunteer Training"
+                data-start="20260519T100000"
+                data-end="20260519T130000"
+                data-loc="147 Martin Luther King Ave, St. Augustine, FL 32084"
+                data-details="CASA spring volunteer training cohort. Learn how to support seniors in St. Augustine.">+ Calendar</button>
+            </div>
+          </article>
+
+          <article class="event-card fade-in fade-in-delay-2" data-program="women" style="grid-template-columns: 100px 1fr auto;">
+            <div class="event-date" aria-label="May 24">
+              <div class="event-date-month">May</div>
+              <div class="event-date-day">24</div>
+            </div>
+            <div class="event-info">
+              <span class="event-program-tag tag-women">Compassionate Women</span>
+              <h3>West Augustine Community Dinner</h3>
+              <p class="event-meta">📍 West Augustine Community Center &nbsp;|&nbsp; ⏰ 12:00 PM – 2:30 PM</p>
+              <p>Our monthly community meal open to all West Augustine residents. Bring a dish to share if you'd like, or just bring yourself — all are welcome at the table. Children are encouraged to attend.</p>
+            </div>
+            <div class="event-card-actions" style="display:flex; flex-direction:column; gap:0.5rem; align-self:center;">
+              <a href="mailto:info@compassionatestaugustine.org?subject=RSVP: West Augustine Community Dinner" class="btn btn-primary" style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;">RSVP</a>
+              <button class="btn btn-accent btn-add-cal"
+                style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;"
+                data-title="West Augustine Community Dinner"
+                data-start="20260524T120000"
+                data-end="20260524T143000"
+                data-loc="West Augustine Community Center, St. Augustine, FL"
+                data-details="Monthly community dinner for West Augustine residents hosted by Compassionate Women.">+ Calendar</button>
+            </div>
+          </article>
+
+          <!-- June Events -->
+          <article class="event-card fade-in" data-program="bench" style="grid-template-columns: 100px 1fr auto;">
+            <div class="event-date" aria-label="June 6">
+              <div class="event-date-month">June</div>
+              <div class="event-date-day">6</div>
+            </div>
+            <div class="event-info">
+              <span class="event-program-tag tag-bench">Purple Bench</span>
+              <h3>Purple Bench Awards Luncheon 2026</h3>
+              <p class="event-meta">📍 The Lightner Museum, St. Augustine &nbsp;|&nbsp; ⏰ 11:30 AM – 2:00 PM</p>
+              <p>Join CSA for the annual celebration honoring St. Augustine's most compassionate businesses. Celebrate this year's newly certified Purple Bench recipients at a beautiful luncheon in the heart of the historic city.</p>
+            </div>
+            <div class="event-card-actions" style="display:flex; flex-direction:column; gap:0.5rem; align-self:center;">
+              <a href="mailto:info@compassionatestaugustine.org?subject=RSVP: Purple Bench Awards Luncheon 2026" class="btn btn-primary" style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;">RSVP</a>
+              <button class="btn btn-accent btn-add-cal"
+                style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;"
+                data-title="Purple Bench Awards Luncheon 2026"
+                data-start="20260606T113000"
+                data-end="20260606T140000"
+                data-loc="The Lightner Museum, 75 King St, St. Augustine, FL 32084"
+                data-details="Annual awards luncheon celebrating St. Augustine's compassionate businesses.">+ Calendar</button>
+            </div>
+          </article>
+
+          <article class="event-card fade-in fade-in-delay-1" data-program="trouble" style="grid-template-columns: 100px 1fr auto;">
+            <div class="event-date" aria-label="June 11">
+              <div class="event-date-month">June</div>
+              <div class="event-date-day">11</div>
+            </div>
+            <div class="event-info">
+              <span class="event-program-tag tag-trouble">Good Trouble</span>
+              <h3>Environment &amp; Climate Forum: Sea Level Rising</h3>
+              <p class="event-meta">📍 St. Augustine City Commission Chambers &nbsp;|&nbsp; ⏰ 6:00 PM – 8:30 PM</p>
+              <p>A community forum on sea level rise and climate resilience in St. Augustine. Hear from environmental scientists, city planners, and community advocates. Share your concerns and learn how to get involved.</p>
+            </div>
+            <div class="event-card-actions" style="display:flex; flex-direction:column; gap:0.5rem; align-self:center;">
+              <a href="mailto:info@compassionatestaugustine.org?subject=RSVP: Climate Forum June" class="btn btn-primary" style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;">RSVP</a>
+              <button class="btn btn-accent btn-add-cal"
+                style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;"
+                data-title="Environment & Climate Forum: Sea Level Rising"
+                data-start="20260611T180000"
+                data-end="20260611T203000"
+                data-loc="St. Augustine City Commission Chambers, St. Augustine, FL"
+                data-details="Community forum on sea level rise and climate resilience.">+ Calendar</button>
+            </div>
+          </article>
+
+          <!-- July Events -->
+          <article class="event-card fade-in" data-program="general" style="grid-template-columns: 100px 1fr auto;">
+            <div class="event-date" aria-label="July 4">
+              <div class="event-date-month">July</div>
+              <div class="event-date-day">4</div>
+            </div>
+            <div class="event-info">
+              <span class="event-program-tag tag-general">CSA Community</span>
+              <h3>🕯️ Light a Candle — Independence Day Walk</h3>
+              <p class="event-meta">📍 The Bridge of Lions, St. Augustine &nbsp;|&nbsp; ⏰ 7:30 PM – 9:00 PM</p>
+              <p>CSA's signature 2026 event: an Independence Day candlelit walk across the Bridge of Lions. Unite with neighbors to celebrate both freedom and the compassionate values we share. Candles provided.</p>
+            </div>
+            <div class="event-card-actions" style="display:flex; flex-direction:column; gap:0.5rem; align-self:center;">
+              <a href="mailto:info@compassionatestaugustine.org?subject=RSVP: Light a Candle July 4" class="btn btn-primary" style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;">RSVP</a>
+              <button class="btn btn-accent btn-add-cal"
+                style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;"
+                data-title="Light a Candle — Independence Day Walk"
+                data-start="20260704T193000"
+                data-end="20260704T210000"
+                data-loc="Bridge of Lions, St. Augustine, FL"
+                data-details="CSA's Light a Candle 2026 — a candlelit walk across the Bridge of Lions on Independence Day.">+ Calendar</button>
+            </div>
+          </article>
+
+          <article class="event-card fade-in fade-in-delay-1" data-program="gardens" style="grid-template-columns: 100px 1fr auto;">
+            <div class="event-date" aria-label="July 12">
+              <div class="event-date-month">July</div>
+              <div class="event-date-day">12</div>
+            </div>
+            <div class="event-info">
+              <span class="event-program-tag tag-gardens">Gift Gardens</span>
+              <h3>Summer Harvest Celebration with EPIC-CURE</h3>
+              <p class="event-meta">📍 West Augustine Garden &nbsp;|&nbsp; ⏰ 9:00 AM – 12:00 PM</p>
+              <p>Celebrate the summer harvest with CSA and EPIC-CURE! Join us for picking, packing, and the joy of knowing every basket of food we harvest together will nourish a family in our community.</p>
+            </div>
+            <div class="event-card-actions" style="display:flex; flex-direction:column; gap:0.5rem; align-self:center;">
+              <a href="mailto:info@compassionatestaugustine.org?subject=RSVP: Summer Harvest Celebration" class="btn btn-primary" style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;">RSVP</a>
+              <button class="btn btn-accent btn-add-cal"
+                style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;"
+                data-title="Summer Harvest Celebration with EPIC-CURE"
+                data-start="20260712T090000"
+                data-end="20260712T120000"
+                data-loc="West Augustine Garden, St. Augustine, FL"
+                data-details="Summer harvest celebration with CSA Gift Gardens and EPIC-CURE.">+ Calendar</button>
+            </div>
+          </article>
+
+          <!-- August Events -->
+          <article class="event-card fade-in" data-program="casa" style="grid-template-columns: 100px 1fr auto;">
+            <div class="event-date" aria-label="August 9">
+              <div class="event-date-month">Aug</div>
+              <div class="event-date-day">9</div>
+            </div>
+            <div class="event-info">
+              <span class="event-program-tag tag-casa">CASA</span>
+              <h3>CASA Community Launch Celebration</h3>
+              <p class="event-meta">📍 CSA Office, 147 MLK Ave &nbsp;|&nbsp; ⏰ 3:00 PM – 6:00 PM</p>
+              <p>Celebrate the official public launch of CASA — Compassionate Aging St. Augustine! Meet the team, learn about the program, and sign up to be a volunteer or request support for yourself or a loved one. Refreshments provided.</p>
+            </div>
+            <div class="event-card-actions" style="display:flex; flex-direction:column; gap:0.5rem; align-self:center;">
+              <a href="mailto:info@compassionatestaugustine.org?subject=RSVP: CASA Launch Celebration" class="btn btn-primary" style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;">RSVP</a>
+              <button class="btn btn-accent btn-add-cal"
+                style="min-height:44px; padding:0.5rem 1.25rem; font-size:0.9rem;"
+                data-title="CASA Community Launch Celebration"
+                data-start="20260809T150000"
+                data-end="20260809T180000"
+                data-loc="147 Martin Luther King Ave, St. Augustine, FL 32084"
+                data-details="Official public launch of CASA — Compassionate Aging St. Augustine.">+ Calendar</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Stay in the Loop ── -->
+    <section class="section section--alt" aria-labelledby="subscribe-heading">
+      <div class="container text-center" style="max-width:680px;">
+        <span class="section-label">Stay Connected</span>
+        <h2 id="subscribe-heading" class="fade-in">Never Miss an Event</h2>
+        <div class="divider"></div>
+        <p class="fade-in fade-in-delay-1">Sign up for CSA's monthly newsletter and be the first to know about upcoming events, new initiatives, and ways to make a difference in St. Augustine.</p>
+        <form action="mailto:info@compassionatestaugustine.org" method="get" enctype="text/plain" class="fade-in fade-in-delay-2" style="display:flex; gap:0.75rem; max-width:480px; margin:0 auto; flex-wrap:wrap;" aria-label="Email newsletter signup">
+          <label for="newsletter-email" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Your email address</label>
+          <input
+            type="email"
+            id="newsletter-email"
+            name="body"
+            placeholder="Your email address"
+            required
+            aria-required="true"
+            style="flex:1; min-width:220px; padding:0.85rem 1rem; border-radius:var(--radius); border:1px solid rgba(168,197,192,0.25); background:rgba(255,255,255,0.06); color:var(--clr-text-dark); font-family:var(--font-body); font-size:1rem;"
+          />
+          <button type="submit" class="btn btn-primary" style="min-height:52px;">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="cta-section" aria-labelledby="events-cta-heading">
+      <div class="container">
+        <span class="section-label">Get Involved</span>
+        <h2 id="events-cta-heading" class="fade-in">Host an Event with CSA</h2>
+        <div class="divider"></div>
+        <p class="fade-in fade-in-delay-1">Do you have an idea for an event that would serve St. Augustine's compassionate community? We'd love to collaborate. Reach out and let's make it happen together.</p>
+        <div class="btn-group fade-in fade-in-delay-2" style="justify-content:center;">
+          <a href="mailto:info@compassionatestaugustine.org?subject=Event Collaboration Idea" class="btn btn-primary btn-lg">Propose an Event</a>
+          <a href="index.html#donate" class="btn btn-outline btn-lg">Support Our Work</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/logo.jpeg" alt="Compassionate St. Augustine logo" />
+            <div>
+              <div class="footer-logo-text">Compassionate St. Augustine</div>
+              <div class="footer-logo-sub">501(c)(3) Nonprofit</div>
+            </div>
+          </div>
+          <p>Influencing and growing a culture of compassion through advocacy, awareness, and action in St. Augustine, Florida.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com" class="social-link" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://instagram.com" class="social-link" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul role="list">
+            <li><a href="gift-gardens.html">Gift Gardens</a></li>
+            <li><a href="compassionate-women.html">Compassionate Women</a></li>
+            <li><a href="good-trouble.html">Good Trouble</a></li>
+            <li><a href="purple-bench.html">Purple Bench</a></li>
+            <li><a href="casa.html">CASA</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul role="list">
+            <li><a href="#events">Upcoming Events</a></li>
+            <li><a href="casa.html#volunteer">Volunteer</a></li>
+            <li><a href="index.html#donate">Donate</a></li>
+            <li><a href="purple-bench.html#nominate">Nominate a Business</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <address class="footer-address" style="font-style:normal;">
+            <strong>Compassionate St. Augustine</strong><br>
+            147 Martin Luther King Ave<br>
+            St. Augustine, FL 32084<br><br>
+            <a href="mailto:info@compassionatestaugustine.org">info@compassionatestaugustine.org</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Compassionate St. Augustine. All rights reserved. 501(c)(3) Nonprofit Organization.</p>
+        <p>Part of the global <a href="https://charterforcompassion.org" target="_blank" rel="noopener noreferrer" style="color:var(--clr-accent-light);">Charter for Compassion</a> movement.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Events filter functionality
+    (function() {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const eventCards = document.querySelectorAll('#events-list .event-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.dataset.filter;
+
+          // Update active button
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          // Filter cards
+          let visibleCount = 0;
+          eventCards.forEach(card => {
+            const program = card.dataset.program;
+            const show = filter === 'all' || program === filter;
+            card.style.display = show ? '' : 'none';
+            if (show) visibleCount++;
+          });
+
+          // Show empty state if needed
+          const noEvents = document.getElementById('no-events-msg');
+          if (visibleCount === 0) {
+            if (!noEvents) {
+              const msg = document.createElement('p');
+              msg.id = 'no-events-msg';
+              msg.className = 'no-events';
+              msg.textContent = 'No upcoming events for this program right now. Check back soon!';
+              document.getElementById('events-list').appendChild(msg);
+            }
+          } else {
+            if (noEvents) noEvents.remove();
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

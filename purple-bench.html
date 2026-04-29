@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The Purple Bench — CSA's program recognizing St. Augustine businesses that exhibit empathy, advocacy, social responsibility, sustainability, and collaboration." />
+  <title>The Purple Bench — Compassionate St. Augustine</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <style>
+    .values-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .value-chip {
+      background: rgba(196,135,90,0.12);
+      border: 1px solid rgba(196,135,90,0.3);
+      color: var(--clr-accent-warm);
+      border-radius: 100px;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.88rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    .biz-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.25rem;
+    }
+    .biz-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(168,197,192,0.12);
+      border-radius: var(--radius);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: all var(--transition);
+    }
+    .biz-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(168,197,192,0.25);
+      transform: translateY(-3px);
+    }
+    .biz-card-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .biz-card h4 { font-size: 1rem; color: var(--clr-white); margin-bottom: 0.25rem; }
+    .biz-card p { font-size: 0.82rem; margin: 0; }
+    .biz-card .biz-badge {
+      display: inline-block;
+      background: var(--clr-accent-warm);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      padding: 0.15rem 0.65rem;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- ── Navigation ── -->
+  <nav class="site-nav" role="navigation" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Compassionate St. Augustine — Home">
+        <img src="assets/logo.jpeg" alt="Bridge of Lions logo — Compassionate St. Augustine" />
+        <div class="nav-logo-text">
+          <span class="nav-logo-title">Compassionate St. Augustine</span>
+          <span class="nav-logo-sub">501(c)(3) Nonprofit</span>
+        </div>
+      </a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gift-gardens.html">Gift Gardens</a></li>
+        <li><a href="compassionate-women.html">Compassionate Women</a></li>
+        <li><a href="good-trouble.html">Good Trouble</a></li>
+        <li><a href="purple-bench.html" class="active">Purple Bench</a></li>
+        <li><a href="casa.html">CASA</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="index.html#donate" class="btn-nav-donate">Donate</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ── Page Hero ── -->
+    <section class="page-hero" aria-label="Purple Bench hero">
+      <div class="page-hero-bg" style="background-image: url('https://picsum.photos/seed/business1/1400/700');" aria-hidden="true"></div>
+      <div class="page-hero-content">
+        <span class="section-label">The Purple Bench</span>
+        <h1>Compassion<br><span class="text-accent">in Business</span></h1>
+        <p>Recognizing St. Augustine businesses that lead with empathy, act with integrity, and prove that compassionate business is good business.</p>
+      </div>
+    </section>
+
+    <!-- ── What Is the Purple Bench ── -->
+    <section class="section" id="what-is" aria-labelledby="pb-what-heading">
+      <div class="container">
+        <div class="about-grid">
+          <div class="fade-in">
+            <span class="section-label">What Is the Purple Bench?</span>
+            <h2 id="pb-what-heading">A Symbol of Compassionate Commerce</h2>
+            <div class="divider" style="margin-left:0;"></div>
+            <p>
+              The Purple Bench is CSA's recognition program for local St. Augustine businesses that demonstrate our core values in the way they operate, treat their employees, serve their customers, and show up for the community.
+            </p>
+            <p>
+              Named for the purple bench — a universal symbol of welcome and inclusion — this program celebrates businesses that prove you don't have to choose between doing well and doing good.
+            </p>
+            <p>
+              Certified Purple Bench businesses display our signature window cling, distinguishing themselves to customers who want to spend their dollars with compassionate businesses.
+            </p>
+            <div class="values-row">
+              <span class="value-chip">💜 Empathy</span>
+              <span class="value-chip">📣 Advocacy</span>
+              <span class="value-chip">🤝 Social Responsibility</span>
+              <span class="value-chip">🌿 Sustainability</span>
+              <span class="value-chip">🔗 Collaboration</span>
+            </div>
+          </div>
+          <div class="fade-in fade-in-delay-1">
+            <img src="https://picsum.photos/seed/business2/600/480" alt="A local St. Augustine shop with a welcoming purple bench outside" loading="lazy" style="border-radius: var(--radius-lg); width:100%; height:380px; object-fit:cover;" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── How to Qualify ── -->
+    <section class="section section--alt" id="qualify" aria-labelledby="qualify-heading">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label">How to Qualify</span>
+          <h2 id="qualify-heading" class="fade-in">The Certification Process</h2>
+          <div class="divider"></div>
+          <p class="section-subtitle fade-in fade-in-delay-1">Earning the Purple Bench designation is a meaningful process that reflects genuine commitment — not just a checkbox exercise.</p>
+        </div>
+        <div class="two-col" style="margin-top:3rem; align-items:start;">
+          <div class="steps fade-in">
+            <div class="step">
+              <div class="step-num" aria-hidden="true">1</div>
+              <div class="step-text">
+                <h4>Nomination</h4>
+                <p>Any community member can nominate a local business they believe embodies CSA's core values. Self-nominations are also welcome.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num" aria-hidden="true">2</div>
+              <div class="step-text">
+                <h4>Application &amp; Review</h4>
+                <p>Nominated businesses complete a short application describing their compassionate practices. CSA's review committee evaluates submissions holistically.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num" aria-hidden="true">3</div>
+              <div class="step-text">
+                <h4>Community Verification</h4>
+                <p>We reach out to employees, customers, and community partners to verify that the business's practices align with their stated values.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="step-num" aria-hidden="true">4</div>
+              <div class="step-text">
+                <h4>Recognition &amp; Celebration</h4>
+                <p>Certified businesses receive their recognition package and are celebrated at our annual awards luncheon — a highlight of St. Augustine's civic calendar.</p>
+              </div>
+            </div>
+          </div>
+          <div class="fade-in fade-in-delay-2">
+            <img src="https://picsum.photos/seed/business3/600/500" alt="Business owner receiving a community award at a civic luncheon" loading="lazy" style="border-radius: var(--radius-lg); width:100%; height:440px; object-fit:cover;" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Donor / Recognition Tiers ── -->
+    <section class="section" id="tiers" aria-labelledby="tiers-heading">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label">Recognition Tiers</span>
+          <h2 id="tiers-heading" class="fade-in">Levels of Recognition</h2>
+          <div class="divider"></div>
+          <p class="section-subtitle fade-in fade-in-delay-1">Businesses can deepen their commitment and recognition through our three-tier support structure.</p>
+        </div>
+        <div class="tiers-grid" style="margin-top:2rem;">
+          <div class="tier-card bronze fade-in fade-in-delay-1">
+            <div class="tier-icon" aria-hidden="true">🪟</div>
+            <h3>Community Supporter</h3>
+            <div class="tier-amount">Purple Bench Certified</div>
+            <ul role="list">
+              <li>Official Purple Bench window cling</li>
+              <li>Listing on CSA website &amp; app</li>
+              <li>Social media feature</li>
+              <li>Certificate of recognition</li>
+              <li>Community newsletter spotlight</li>
+            </ul>
+          </div>
+          <div class="tier-card silver fade-in fade-in-delay-2">
+            <div class="tier-icon" aria-hidden="true">🪑</div>
+            <h3>Compassion Champion</h3>
+            <div class="tier-amount">Bench with Plaque</div>
+            <ul role="list">
+              <li>Everything in Community Supporter</li>
+              <li>Named Purple Bench installed at your location</li>
+              <li>Engraved plaque with your business name</li>
+              <li>Featured in annual CSA report</li>
+              <li>Invitation to exclusive partner events</li>
+            </ul>
+          </div>
+          <div class="tier-card gold fade-in fade-in-delay-3">
+            <div class="tier-icon" aria-hidden="true">🏆</div>
+            <h3>Compassion Anchor</h3>
+            <div class="tier-amount">Awards Luncheon Sponsor</div>
+            <ul role="list">
+              <li>Everything in Compassion Champion</li>
+              <li>Presenting sponsorship of annual awards luncheon</li>
+              <li>Featured keynote recognition</li>
+              <li>Table of 10 at the awards luncheon</li>
+              <li>Year-round premium brand placement</li>
+              <li>Advisory seat on CSA business council</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Recognized Businesses ── -->
+    <section class="section section--alt" id="businesses" aria-labelledby="biz-heading">
+      <div class="container">
+        <div class="text-center">
+          <span class="section-label">Recognized Businesses</span>
+          <h2 id="biz-heading" class="fade-in">St. Augustine's Compassionate Businesses</h2>
+          <div class="divider"></div>
+          <p class="section-subtitle fade-in fade-in-delay-1">These local businesses have earned the Purple Bench designation by demonstrating genuine compassion in action.</p>
+        </div>
+        <div class="biz-grid fade-in" style="margin-top:2rem;">
+          <div class="biz-card">
+            <div class="biz-badge">Champion</div>
+            <div class="biz-card-icon" aria-hidden="true">☕</div>
+            <h4>The Ancient City Café</h4>
+            <p>Downtown coffee shop</p>
+          </div>
+          <div class="biz-card">
+            <div class="biz-badge">Supporter</div>
+            <div class="biz-card-icon" aria-hidden="true">📚</div>
+            <h4>Lighthouse Books</h4>
+            <p>Independent bookstore</p>
+          </div>
+          <div class="biz-card">
+            <div class="biz-badge">Anchor</div>
+            <div class="biz-card-icon" aria-hidden="true">🏨</div>
+            <h4>Casa Monica Partners</h4>
+            <p>Hospitality group</p>
+          </div>
+          <div class="biz-card">
+            <div class="biz-badge">Supporter</div>
+            <div class="biz-card-icon" aria-hidden="true">🌿</div>
+            <h4>Verde Organic Market</h4>
+            <p>Sustainable grocer</p>
+          </div>
+          <div class="biz-card">
+            <div class="biz-badge">Champion</div>
+            <div class="biz-card-icon" aria-hidden="true">🎨</div>
+            <h4>St. Augustine Art Guild</h4>
+            <p>Arts &amp; culture collective</p>
+          </div>
+          <div class="biz-card">
+            <div class="biz-badge">Supporter</div>
+            <div class="biz-card-icon" aria-hidden="true">🔨</div>
+            <h4>Flagler Heritage Construction</h4>
+            <p>Local contractor</p>
+          </div>
+          <div class="biz-card">
+            <div class="biz-badge">Supporter</div>
+            <div class="biz-card-icon" aria-hidden="true">🍽️</div>
+            <h4>The Floridian Restaurant</h4>
+            <p>Farm-to-table dining</p>
+          </div>
+          <div class="biz-card">
+            <div class="biz-badge">Champion</div>
+            <div class="biz-card-icon" aria-hidden="true">💊</div>
+            <h4>First Coast Health</h4>
+            <p>Community health clinic</p>
+          </div>
+        </div>
+        <div class="text-center" style="margin-top:2.5rem;">
+          <p style="font-size:0.95rem;">These are representative examples. Over 30 businesses hold Purple Bench recognition.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Quote ── -->
+    <section class="section" aria-label="Business owner quote">
+      <div class="container" style="max-width:820px;">
+        <div class="quote-block fade-in">
+          <blockquote>"We didn't get into business to be transactional. Being a Purple Bench business means our customers know we see them as neighbors first. It's changed how we think about everything we do."</blockquote>
+          <cite>— Purple Bench Certified Business Owner, St. Augustine</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Photo Strip ── -->
+    <section class="section section--alt" aria-label="Business community photos">
+      <div class="container">
+        <div class="img-strip">
+          <img src="https://picsum.photos/seed/biz3/400/300" alt="A local St. Augustine storefront with a welcoming entrance" loading="lazy" />
+          <img src="https://picsum.photos/seed/biz4/400/300" alt="Business owners gathered at a community awards event" loading="lazy" />
+          <img src="https://picsum.photos/seed/biz5/400/300" alt="Customers enjoying a compassionate local business space" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="cta-section" id="nominate" aria-labelledby="pb-cta-heading">
+      <div class="container">
+        <span class="section-label">Get Recognized</span>
+        <h2 id="pb-cta-heading" class="fade-in">Nominate a Compassionate Business</h2>
+        <div class="divider"></div>
+        <p class="fade-in fade-in-delay-1">Know a St. Augustine business that leads with heart? Nominate them for the Purple Bench — or apply on behalf of your own business. Compassionate commerce deserves recognition.</p>
+        <div class="btn-group fade-in fade-in-delay-2" style="justify-content:center;">
+          <a href="mailto:info@compassionatestaugustine.org?subject=Purple Bench Nomination" class="btn btn-primary btn-lg">Nominate a Business</a>
+          <a href="mailto:info@compassionatestaugustine.org?subject=Purple Bench Application" class="btn btn-outline btn-lg">Apply for Certification</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="assets/logo.jpeg" alt="Compassionate St. Augustine logo" />
+            <div>
+              <div class="footer-logo-text">Compassionate St. Augustine</div>
+              <div class="footer-logo-sub">501(c)(3) Nonprofit</div>
+            </div>
+          </div>
+          <p>Influencing and growing a culture of compassion through advocacy, awareness, and action in St. Augustine, Florida.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com" class="social-link" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="https://instagram.com" class="social-link" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul role="list">
+            <li><a href="gift-gardens.html">Gift Gardens</a></li>
+            <li><a href="compassionate-women.html">Compassionate Women</a></li>
+            <li><a href="good-trouble.html">Good Trouble</a></li>
+            <li><a href="purple-bench.html">Purple Bench</a></li>
+            <li><a href="casa.html">CASA</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul role="list">
+            <li><a href="events.html">Upcoming Events</a></li>
+            <li><a href="casa.html#volunteer">Volunteer</a></li>
+            <li><a href="index.html#donate">Donate</a></li>
+            <li><a href="#nominate">Nominate a Business</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <address class="footer-address" style="font-style:normal;">
+            <strong>Compassionate St. Augustine</strong><br>
+            147 Martin Luther King Ave<br>
+            St. Augustine, FL 32084<br><br>
+            <a href="mailto:info@compassionatestaugustine.org">info@compassionatestaugustine.org</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Compassionate St. Augustine. All rights reserved. 501(c)(3) Nonprofit Organization.</p>
+        <p>Part of the global <a href="https://charterforcompassion.org" target="_blank" rel="noopener noreferrer" style="color:var(--clr-accent-light);">Charter for Compassion</a> movement.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
