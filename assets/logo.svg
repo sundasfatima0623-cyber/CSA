@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Compassionate St. Augustine Bridge of Lions logo</title>
+  <desc id="desc">White illustrated silhouette of the Bridge of Lions with two birds over a deep teal background.</desc>
+  <rect width="1200" height="800" fill="#1E3A45"/>
+  <g fill="none" stroke="#A8C5C0" stroke-width="5" opacity=".38">
+    <path d="M-60 640c45-24 90-24 135 0s90 24 135 0 90-24 135 0 90 24 135 0 90-24 135 0 90 24 135 0 90-24 135 0 90 24 135 0 90-24 135 0"/>
+    <path d="M-20 700c45-24 90-24 135 0s90 24 135 0 90-24 135 0 90 24 135 0 90-24 135 0 90 24 135 0 90-24 135 0 90 24 135 0 90-24 135 0"/>
+  </g>
+  <g fill="#FFFFFF">
+    <path d="M160 496h880v24H160z"/>
+    <path d="M178 449h844v11H178z"/>
+    <path d="M210 457h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9zm50 0h9v48h-9z"/>
+    <path d="M456 504 590 374l18 20-108 110zm288 0L610 374l-18 20 108 110z"/>
+    <path d="M252 282h90v223h-90zm606 0h90v223h-90z"/>
+    <path d="m238 282 59-74 59 74zm606 0 59-74 59 74z"/>
+  </g>
+  <g fill="#1E3A45">
+    <path d="M277 334h40v62h-40zm606 0h40v62h-40z"/>
+    <path d="M283 397h28v108h-28zm606 0h28v108h-28z"/>
+    <rect x="258" y="302" width="78" height="7"/>
+    <rect x="864" y="302" width="78" height="7"/>
+  </g>
+  <g fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round">
+    <path d="M388 505c0-42 32-76 72-76s72 34 72 76"/>
+    <path d="M534 505c0-42 32-76 72-76s72 34 72 76"/>
+    <path d="M680 505c0-42 32-76 72-76s72 34 72 76"/>
+  </g>
+  <g fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round">
+    <path d="M713 210c22-18 48-18 72 0 22-18 48-18 72 0"/>
+    <path d="M812 164c18-14 38-14 56 0 18-14 38-14 56 0"/>
+  </g>
+</svg>
